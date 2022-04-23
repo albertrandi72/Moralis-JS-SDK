@@ -2643,7 +2643,7 @@ export default class Web3Api {
   }
 
   static storage: {
-    uploadFolder: () => Promise<operations["uploadFolder"]["responses"]["200"]["content"]["application/json"]>;
+    uploadFolder: (options: {abi:any}) => Promise<operations["uploadFolder"]["responses"]["200"]["content"]["application/json"]>;
   }
 
   static info: {

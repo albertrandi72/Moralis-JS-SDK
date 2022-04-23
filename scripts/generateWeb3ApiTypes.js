@@ -100,8 +100,10 @@ const makeMethod = (pathDetails, path) => {
     responseCode === '200'
       ? `${operations}["responses"]["${responseCode}"]["content"]["application/json"]`
       : 'unknown';
-  const optionParam = optionsString ? `options: ${optionsString}` : '';
-
+  let optionParam = optionsString ? `options: ${optionsString}` : '';
+  if (operations === 'operations["uploadFolder"]') {
+    optionParam = `options: {abi:any}`;
+  }
   return `    ${path}: (${optionParam}) => Promise<${result}>;
 `;
 };
